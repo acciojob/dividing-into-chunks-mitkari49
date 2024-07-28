@@ -2,9 +2,8 @@ const arr = [1, 2, 3, 4, 1, 0, 2, 2];
 
 const divide = (arr, n) => {
   const result=[];
-	let current_sum=0;
-	let current_subarray=[];
-	for (cont num of arr) {
+	const [current_sum, current_subarray] = [0, []];
+	for (const num of arr) {
 		if(current_sum+num>n){
 			result.push(current_subarray);
 			current_sum=num;
@@ -14,11 +13,11 @@ const divide = (arr, n) => {
 			current_sum+=num; // currentsum+=num;
 			current_subarray.push(num);
 		}
-	}
-	if(current_subarray.length>0){
+		if(current_subarray.length>0){
 		result.push(current_subarray);
 	}
-		
+	}
+		return result;
 	}
 };
 
